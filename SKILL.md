@@ -31,9 +31,9 @@ This script performs the entire operation.
 
 ### **Inputs (Command-Line Arguments)**
 
-- `--service-name`: (Required) The short name for the service (e.g., `n8n`).
-- `--domain`: (Required) The root domain name (e.g., `994431.xyz`).
-- `--port`: (Required) The local port the service is running on (e.g., `5678`).
+- `--service-name`: (Required) The short name for the service (e.g., `grafana`).
+- `--domain`: (Required) The root domain name (e.g., `example.com`).
+- `--port`: (Required) The local port the service is running on (e.g., `3000`).
 - `--config-path`: (Optional) The path to Nginx's `conf.d` directory. **Overrides** the `NGINX_CONFIG_PATH` environment variable.
 - `--container-name`: (Optional) The name of the Nginx Docker container. **Overrides** the `NGINX_CONTAINER_NAME` environment variable.
 
@@ -58,25 +58,25 @@ This script performs the entire operation.
 
 ```bash
 # Set for future convenience
-export NGINX_CONFIG_PATH="/opt/1panel/apps/openresty/openresty/conf/conf.d"
-export NGINX_CONTAINER_NAME="1Panel-openresty-1Mjq"
+export NGINX_CONFIG_PATH="/path/to/your/nginx/conf.d"
+export NGINX_CONTAINER_NAME="your_nginx_container"
 
 # Now, the command is very simple:
 bash skills/nginx-config-creator/scripts/create-and-reload.sh \
-  --service-name "n8n" \
-  --domain "994431.xyz" \
-  --port "5678"
+  --service-name "grafana" \
+  --domain "example.com" \
+  --port "3000"
 ```
 
 **Scenario 2: No environment variables (providing all info via arguments)**
 
 ```bash
 bash skills/nginx-config-creator/scripts/create-and-reload.sh \
-  --service-name "n8n" \
-  --domain "994431.xyz" \
-  --port "5678" \
-  --config-path "/opt/1panel/apps/openresty/openresty/conf/conf.d" \
-  --container-name "1Panel-openresty-1Mjq"
+  --service-name "grafana" \
+  --domain "example.com" \
+  --port "3000" \
+  --config-path "/path/to/your/nginx/conf.d" \
+  --container-name "your_nginx_container"
 ```
 
 ### **Failure Strategy**
