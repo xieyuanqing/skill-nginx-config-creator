@@ -1,6 +1,10 @@
 ---
 name: nginx-config-creator
 description: "Creates a standard Nginx/OpenResty reverse proxy config file for a service and reloads the web server. Features safety checks and environment awareness. Takes service name, domain, and port as main arguments."
+metadata:
+  openclaw:
+    requires:
+      bins: ["bash", "docker"]
 ---
 
 # Nginx Config Creator (Enterprise Grade)
